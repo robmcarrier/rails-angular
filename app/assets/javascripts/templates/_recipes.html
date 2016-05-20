@@ -16,7 +16,7 @@
     <p>Lunch</p>
     <div ng-repeat="recipe in recipes | filter: searchBox " ng-if="recipe.category === 'lunch'">
       <div>
-        <a href="#/recipes/{{$index}}"><h2>{{recipe.name}}</h2></a>
+        <a href="#/recipes/{{parseInt($index)+1}}"><h2>{{recipe.name}}</h2></a>
         <p>{{recipe.upvote}}</p>
       </div>
       <hr>

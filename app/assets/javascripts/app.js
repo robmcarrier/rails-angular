@@ -17,7 +17,7 @@ var app = angular.module('app', ['ui.router', 'templates'])
         templateUrl: 'templates/_recipe.html',
         controller: function($scope, $stateParams, $http){
 
-          $http.get('./recipes/'+ $stateParams.id + '.json').success(function(data){
+          $http.get('./recipes/'+ (parseInt($stateParams.id) + 1) + '.json').success(function(data){
             $scope.recipe = data;
           })}
       });
