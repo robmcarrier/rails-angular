@@ -11,7 +11,9 @@ class RecipesController < ApplicationController
 
   def create
     respond_with Recipe.create(recipe_params)
+    ingredient = recipe.ingredients.build(params[:ingredients])
     
+
   end
 
   private

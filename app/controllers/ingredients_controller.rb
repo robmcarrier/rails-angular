@@ -6,6 +6,10 @@ class IngredientsController < ApplicationController
     respond_with recipe, ingredient
   end
 
+  def show
+    respond_with Ingredient.find(params[:id])
+  end
+
   private
 
   def ingredient_params
