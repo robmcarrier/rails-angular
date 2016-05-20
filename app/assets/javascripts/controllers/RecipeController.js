@@ -1,7 +1,9 @@
-function RecipeController($scope, recipes){
-  $scope.recipes = [{name: "test", category: "breakfast", upvote: 0, ingredients: [
-    {name: "taco"},
-    {name: "meat"}]}, {name: "tsdsfest", category: "breakfast", upvote: 4, ingredients: [{name: "taco"}, {name: "meat"}]}, {name: "tacos", upvote: 5, category: "lunch", ingredients: [{name: "taco"}, {name: "meat"}]}];
+function RecipeController($scope, $http, recipes){
+  $scope.recipes = [];
+
+  $http.get('./recipes.json').success(function(data) {
+    return $scope.recipes = data
+  })
 
   recipes.recipes = $scope.recipes;
 
@@ -12,8 +14,7 @@ function RecipeController($scope, recipes){
     recipes.create({
       name: $scope.name,
       ingredients: $scope.ingredients,
-      category: $scope.category,
-      upvote: 0
+      category: $scope.category
     });
     recipes.recipes = $scope.recipes;
     $scope.name = "";

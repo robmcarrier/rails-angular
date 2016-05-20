@@ -5,7 +5,12 @@ var app = angular.module('app', ['ui.router', 'templates'])
     $stateProvider
       .state('recipes', {
         url: '/recipes',
-        templateUrl: 'templates/_recipes.html'
+        templateUrl: 'templates/_recipes.html',
+        resolve: {
+          postPromise: ['recipes', function(recipes){
+            return recipes.getAll();
+          }]
+        }
       })
       .state('recipe',{
         url: '/recipes/{id}',
@@ -24,8 +29,11 @@ var app = angular.module('app', ['ui.router', 'templates'])
     o.getAll = function() {
       return $http.get('/recipes.json').success(function(data){
         angular.copy(data, o.recipes);
+
       });
     };
+
+
 
     o.create = function(recipe) {
       return $http.post('/recipes.json', recipe).success(function(data){
@@ -33,4 +41,4 @@ var app = angular.module('app', ['ui.router', 'templates'])
       });
     };
     return o;
-  }]);
+  }])
