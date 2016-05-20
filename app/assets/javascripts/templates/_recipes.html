@@ -1,5 +1,7 @@
+
 <div ng-controller="RecipeController">
-  <div style="background-color: #cdcdcd">
+
+  <div style="!background-color: #e1b866">
     <p style="font-size: 50px">Breakfast</p>
       <span class="glyphicon glyphicon-menu-down" ng-click="breakHide = !breakHide"></span>
     <div ng-repeat="recipe in recipes | filter: searchBox " ng-if="recipe.category === 'breakfast'" ng-show="breakHide">
@@ -10,9 +12,11 @@
       <hr>
     </div>
   </div>
+
+  <br>
   <br>
 
-  <div style="background-color: #cdcdcd">
+  <div style="background-color: #e1b866">
     <p>Lunch</p>
     <div ng-repeat="recipe in recipes | filter: searchBox " ng-if="recipe.category === 'lunch'">
       <div>
@@ -22,7 +26,6 @@
       <hr>
     </div>
   </div>
-
 
 
 <input type="button" ng-click="isHidden = !isHidden" value="New Recipe"/>
@@ -49,4 +52,5 @@
   <span ng-click="addIngredient()">Add Ingredient</span>
   <button type="submit">Add Recipe</button>
 </form>
+
 </div>
