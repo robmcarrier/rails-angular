@@ -23,6 +23,9 @@ gem 'sprockets', '2.12.3'
 gem 'responders', '~> 2.0'
 
 gem 'angular_rails_csrf'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '>= 3.2'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

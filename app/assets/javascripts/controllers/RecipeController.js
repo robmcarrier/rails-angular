@@ -5,6 +5,10 @@ function RecipeController($scope, $http, recipes){
     return $scope.recipes = data
   })
 
+  $scope.viewRecipe = function(id){
+    $recipe.url("/recipes/" + id);
+  };
+
   recipes.recipes = $scope.recipes;
 
   $scope.addRecipe = function(){

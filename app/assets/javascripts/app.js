@@ -15,9 +15,11 @@ var app = angular.module('app', ['ui.router', 'templates'])
       .state('recipe',{
         url: '/recipes/{id}',
         templateUrl: 'templates/_recipe.html',
-        controller: function($scope, $stateParams, recipes){
-            $scope.recipe = recipes.recipes[$stateParams.id];
-          }
+        controller: function($scope, $stateParams, $http){
+
+          $http.get('./recipes/'+ $stateParams.id + '.json').success(function(data){
+            $scope.recipe = data;
+          })}
       });
 
   })
@@ -32,7 +34,11 @@ var app = angular.module('app', ['ui.router', 'templates'])
 
       });
     };
-
+    o.get = function(id) {
+  		return $http.get('/recipes/' + id + '.json').then(function(result){
+  			return result.data;
+  		});
+  	};
 
 
     o.create = function(recipe) {
