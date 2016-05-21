@@ -20,7 +20,9 @@ function RecipeController($scope, $http, recipes){
       ingredients: $scope.ingredients,
       category: $scope.category
     });
-    recipes.recipes = $scope.recipes;
+    $http.get('./recipes.json').success(function(data) {
+      return $scope.recipes = data
+    })
     $scope.name = "";
     $scope.ingredients = [{name: ""}];
     $scope.category = "";
