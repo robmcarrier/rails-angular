@@ -47,4 +47,8 @@ var app = angular.module('app', ['ui.router', 'templates'])
       });
     };
     return o;
+
+    o.addIngredient = function(id, ingredient) {
+  return $http.post('/recipes/' + id + '/ingredients.json', ingredient);
+};
   }])

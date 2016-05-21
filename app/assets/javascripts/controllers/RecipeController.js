@@ -17,18 +17,18 @@ function RecipeController($scope, $http, recipes){
     if(!$scope.ingredients || $scope.ingredients[0].name === ""){return;}
     recipes.create({
       name: $scope.name,
-      ingredients: $scope.ingredients,
-      category: $scope.category
+      category: $scope.category,
+      ingredients: $scope.ingredients
     });
     $http.get('./recipes.json').success(function(data) {
       return $scope.recipes = data
     })
     $scope.name = "";
-    $scope.ingredients = [{name: ""}];
+    $scope.ingredients = [{}];
     $scope.category = "";
   }
 
-  $scope.ingredients = [{name: ""}];
+  $scope.ingredients = [{}];
 
   $scope.isHidden = false;
 
@@ -38,7 +38,7 @@ function RecipeController($scope, $http, recipes){
 
   $scope.addIngredient = function(){
 
-    $scope.ingredients.push({name: ""});
+    $scope.ingredients.push({});
   }
 }
 

@@ -10,16 +10,23 @@ class RecipesController < ApplicationController
   end
 
   def create
-    respond_with Recipe.create(recipe_params)
-    ingredient = recipe.ingredients.build(params[:ingredients])
-    
-
+    @recipe = Recipe.create(recipe_params)
+    newStuff = params[:ingredients]
+    i = 0
+    while i < newStuff.length
+      ingredient = Ingredient.new
+      ingredient.name = params[:ingredients][i][:name]
+      @recipe.ingredients << ingredient
+      i += 1
+    end
+    @recipe.save
+    respond_with @recipe
   end
 
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :ingredients, :category)
+    params.require(:recipe).permit!
   end
 
 
