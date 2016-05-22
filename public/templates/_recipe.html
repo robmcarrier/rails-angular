@@ -1,12 +1,15 @@
   <div class="container-fluid" style="background-color: #A8ECB9">
-    <a style="text-decoration: none" href="/"><h2 style="color: white">Recipes</h2></a>
+    <a style="text-decoration: none" href="/"><h2 style="color: white; font-size: 50px">Recipes</h2></a>
   </div>
   <br>
-
+<div class="container" style="background-color: white">
 <h2>{{recipe.name}}</h2>
 <h3>{{recipe.category}}</h3>
+</div>
 <br>
-<p>Ingredients</p>
+<div class="container" style="background-color: white">
+<h4>Ingredients</h4>
 <div ng-repeat="ingredient in recipe.ingredients">
-  {{ingredient.name}}
+  <li>{{ingredient.name}}</li>
+</div>
 </div>
