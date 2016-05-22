@@ -27,14 +27,24 @@ function RecipeController($scope, $http, recipes){
     $scope.ingredients = [{}];
     $scope.category = "";
   }
+  $scope.breakClass = "glyphicon glyphicon-menu-down"
+
+  $scope.changeBreak = function(){
+    if($scope.breakClass === "glyphicon glyphicon-menu-down"){
+      $scope.breakClass = "glyphicon glyphicon-menu-up";
+
+    } else {
+      $scope.breakClass = "glyphicon glyphicon-menu-down";
+    };
+  };
 
   $scope.ingredients = [{}];
-
   $scope.isHidden = false;
-
   $scope.breakHide = false;
-
   $scope.lunchHide = false;
+  $scope.dinnerHide = false;
+  $scope.sweetHide = false;
+  $scope.otherHide = false;
 
   $scope.addIngredient = function(){
 

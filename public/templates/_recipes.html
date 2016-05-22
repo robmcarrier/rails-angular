@@ -1,11 +1,17 @@
 
 <div ng-controller="RecipeController">
 
+  <div class="container-fluid" style="background-color: #A8ECB9">
+    <a style="text-decoration: none" href="/"><h2 style="color: white">Recipes</h2></a>
+    <input class="navbar-right" type="text" ng-model="searchBox" placeholder="Search"/>
+  </div>
+  <br>
+
   <div class="container" style="background-color: white">
-    <p style="font-size: 50px">Breakfast</p>
+    <p style="font-size: 35px">Breakfast</p>
     <hr>
     <div class="text-center">
-      <span class="glyphicon glyphicon-menu-down" ng-click="breakHide = !breakHide"></span>
+      <span ng-class="breakClass" ng-click="breakHide = !breakHide; changeBreak()"></span>
     </div>
     <div ng-repeat="recipe in recipes | filter: searchBox " ng-if="recipe.category === 'breakfast'" ng-show="breakHide">
       <div>
@@ -16,10 +22,9 @@
   </div>
 
   <br>
-  <br>
 
   <div class="container" style="background-color: white">
-    <p style="font-size: 50px">Lunch</p>
+    <p style="font-size:35px">Lunch</p>
     <hr>
     <div class="text-center">
       <span class="glyphicon glyphicon-menu-down " ng-click="lunchHide = !lunchHide"></span>
@@ -32,6 +37,55 @@
     </div>
   </div>
 
+  <br>
+
+  <div class="container" style="background-color: white">
+    <p style="font-size:35px">Dinner</p>
+    <hr>
+    <div class="text-center">
+      <span class="glyphicon glyphicon-menu-down " ng-click="dinnerHide = !dinnerHide"></span>
+    </div>
+    <div ng-repeat="recipe in recipes | filter: searchBox " ng-if="recipe.category === 'dinner'" ng-show="dinnerHide">
+      <div>
+        <a href="#/recipes/{{$index}}"><h2>{{recipe.name}}</h2></a>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="container" style="background-color: white">
+    <p style="font-size:35px">Sweets</p>
+    <hr>
+    <div class="text-center">
+      <span class="glyphicon glyphicon-menu-down " ng-click="sweetHide = !sweetHide"></span>
+    </div>
+    <div ng-repeat="recipe in recipes | filter: searchBox " ng-if="recipe.category === 'sweets'" ng-show="sweetHide">
+      <div>
+        <a href="#/recipes/{{$index}}"><h2>{{recipe.name}}</h2></a>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+  <br>
+
+    <div class="container" style="background-color: white">
+      <p style="font-size:35px">Other</p>
+      <hr>
+      <div class="text-center">
+        <span class="glyphicon glyphicon-menu-down " ng-click="otherHide = !otherHide"></span>
+      </div>
+      <div ng-repeat="recipe in recipes | filter: searchBox " ng-if="recipe.category === 'other'" ng-show="otherHide">
+        <div>
+          <a href="#/recipes/{{$index}}"><h2>{{recipe.name}}</h2></a>
+        </div>
+        <hr>
+      </div>
+    </div>
+
+    <br>
 <div class="container">
 <input type="button" ng-click="isHidden = !isHidden" value="New Recipe"/>
 
