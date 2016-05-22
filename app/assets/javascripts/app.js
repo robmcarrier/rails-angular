@@ -22,6 +22,7 @@ var app = angular.module('app', ['ui.router', 'templates'])
           })}
       });
 
+
   })
 .factory('recipes', ['$http', function($http){
     var o ={
@@ -39,6 +40,13 @@ var app = angular.module('app', ['ui.router', 'templates'])
   			return result.data;
   		});
   	};
+
+    o.put = function(id){
+      return $http.put('/recipes/' + id + "/edit.json").success(function(data){
+        o.recipe.update(data);
+      });
+    };
+    return o;
 
 
     o.create = function(recipe) {

@@ -23,6 +23,12 @@ class RecipesController < ApplicationController
     respond_with @recipe
   end
 
+  def update
+
+    recipe = Recipe.find(params[:id])
+    respond_with recipe.update_attributes(recipe_params)
+  end
+
   private
 
   def recipe_params
