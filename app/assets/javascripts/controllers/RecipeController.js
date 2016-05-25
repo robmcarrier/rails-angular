@@ -28,16 +28,6 @@ function RecipeController($scope, $http, recipes){
     $scope.category = "";
   }
 
-  $scope.editRecipe = function(){
-    recipe.update({
-      name: $scope.name,
-      category: $scope.category,
-      ingredients: $scope.ingredients
-    });
-    $http.put('./recipes.json').success(function(data) {
-      return $scope.recipes = data
-    })
-  }
   $scope.breakClass = "glyphicon glyphicon-menu-down"
 
   $scope.changeBreak = function(){

@@ -41,13 +41,6 @@ var app = angular.module('app', ['ui.router', 'templates'])
   		});
   	};
 
-    o.put = function(id){
-      return $http.put('/recipes/' + id + "/edit.json").success(function(data){
-        o.recipe.update(data);
-      });
-    };
-    return o;
-
 
     o.create = function(recipe) {
       return $http.post('/recipes.json', recipe).success(function(data){
